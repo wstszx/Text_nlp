@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remote Control</title>
+    <script>
+        let socket = new WebSocket("ws://localhost:8766");
+
+        socket.onopen = function (event) {
+            let message = JSON.stringify({
+                type: 'control',
+                action: 'connect',
+                ip: '192.168.31.106', // Android设备的IP地址
+                port: 5555, // Android设备的端口
+                rsa_key_path: "C:/Users/Admin/.ssh/remote_control" // RSA私钥文件路径
+            });
+            socket.send(message);
+        };
+
+        socket.onmessage = function (event) {
+            console.log(event.data);
+            let data = JSON.parse(event.data);
+            if (data.type == 'display') {
+                // 显示手机画面
+                let img = document.getElementById('screen');
+                img.src = data.image;
+            }
+        };
+
+        function sendTap(x, y) {
+            let message = JSON.stringify({
+                type: 'control',
+                action: 'tap',
+                x: x,
+                y: y
+            });
+            socket.send(message);
+        }
+
+        function sendSwipe(x1, y1, x2, y2) {
+            let message = JSON.stringify({
+                type: 'control',
+                action: 'swipe',
+                x1: x1,
+                y1: y1,
+                x2: x2,
+                y2: y2
+            });
+            socket.send(message);
+        }
+
+        function sendKey(keycode) {
+            let message = JSON.stringify({
+                type: 'control',
+                action: 'key',
+                keycode: keycode
+            });
+            socket.send(message);
+        }
+
+        function handleMouseDown(event) {
+            // 记录鼠标按下的位置
+            let canvas = document.getElementById('canvas');
+            canvas.startX = event.offsetX;
+            canvas.startY = event.offsetY;
+        }
+
+        function handleMouseUp(event) {
+            // 计算鼠标松开的位置
+            let canvas = document.getElementById('canvas');
+            let endX = event.offsetX;
+            let endY = event.offsetY;
+            
+            // 判断是点击还是滑动
+            if (Math.abs(endX - canvas.startX) < 10 && Math.abs(endY - canvas.startY) < 10) {
+                // 点击
+                sendTap(canvas.startX, canvas.startY);
+            } else {
+                // 滑动
+                sendSwipe(canvas.startX, canvas.startY, endX, endY);
+            }
+        }
+
+        function handleKeyDown(event) {
+            // 发送按键事件
+            sendKey(event.keyCode);
+        }
+    </script>
+</head>
+<body>
+    <img id="screen" width="360" height="640" /> <!-- 显示手机画面 -->
+    <canvas id="canvas" width="360" height="640" style="position:absolute;top:0;left:0;" onmousedown="handleMouseDown(event)" onmouseup="handleMouseUp(event)" onkeydown="handleKeyDown(event)" tabindex="0"></canvas> <!-- 捕捉鼠标和键盘事件 -->
+</body>
+</html>

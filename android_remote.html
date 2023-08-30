@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Appium Screenshot</title>
+    <style>
+        .highlighted {
+            border: 2px solid red;
+        }
+
+        #refresh-button {
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="screenshot" src="http://localhost:5000/screenshot.png" style="width: 1236px; height: 2676px;">
+    <button id="refresh-button" onclick="refreshScreenshot()">刷新</button>
+    <div id="overlay" style="position: absolute; top: 0; left: 0;"></div>
+
+    <script>
+        // Get the image element
+        var img = document.getElementById('screenshot');
+        var overlay = document.getElementById('overlay');
+
+        function updateOverlaySize() {
+            overlay.style.width = img.offsetWidth + 'px';
+            overlay.style.height = img.offsetHeight + 'px';
+        }
+
+        // Define the function to highlight elements
+        function highlightElements(data) {
+            // Remove previous highlighted elements
+            var previousHighlightedElements = overlay.querySelectorAll('.highlighted');
+            previousHighlightedElements.forEach(element => {
+                element.classList.remove('highlighted');
+            });
+
+            // Add new highlighted element to the overlay
+            var left = data.left;
+            var top = data.top;
+            var width = data.width;
+            var height = data.height;
+
+            var overlayRect = overlay.getBoundingClientRect();
+            var overlayLeft = overlayRect.left;
+            var overlayTop = overlayRect.top;
+
+            var childBoundsLeft = left + overlayLeft;
+            var childBoundsTop = top + overlayTop;
+            var childBoundsWidth = width;
+            var childBoundsHeight = height;
+
+            var htmlElement = document.createElement("div");
+            htmlElement.style.position = "absolute";
+            htmlElement.style.left = childBoundsLeft + "px";
+            htmlElement.style.top = childBoundsTop + "px";
+            htmlElement.style.width = childBoundsWidth + "px";
+            htmlElement.style.height = childBoundsHeight + "px";
+            htmlElement.style.boxSizing = "border-box";
+            htmlElement.style.border = "2px solid red";
+            htmlElement.classList.add('highlighted');
+            overlay.appendChild(htmlElement);
+
+            // Update the size of the overlay
+            updateOverlaySize();
+        }
+
+
+        // Define the function to refresh the screenshot
+        function refreshScreenshot() {
+            // Request to refresh the screenshot
+            var url = 'http://localhost:5000/screenshot.png?time=' + new Date().getTime();
+            img.src = url;
+
+            // fetch('http://localhost:5000/highlight', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded'
+            //     },
+            //     body: 'x=' + 700 + '&y=' + 1700
+            // })
+            //     .then(response => response.json()) // Convert the response to JSON format
+            //     .then(data => {
+            //         // Clear the previous overlay
+            //         overlay.innerHTML = '';
+
+            //         // Update img element's src attribute to display the new screenshot
+            //         var url = img.src;
+            //         img.src = url;
+
+            //         // Highlight the elements
+            //         highlightElements(data);
+            //     })
+            //     .catch(error => console.error(error));
+        }
+
+        // Update the overlay size initially
+        updateOverlaySize();
+
+        // Listen to the mousemove event on the overlay
+        overlay.addEventListener('mousemove', function (event) {
+            // Calculate the mouse position relative to the overlay
+            var rect = overlay.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+
+            // Request to highlight the element at the current mouse position
+            fetch('http://localhost:5000/highlight', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'x=' + x + '&y=' + y
+            })
+                .then(response => response.json()) // Convert the response to JSON format
+                .then(data => {
+                    // Clear the previous overlay
+                    overlay.innerHTML = '';
+
+                    // Update img element's src attribute to display the new screenshot
+                    var url = img.src;
+                    img.src = url;
+
+                    // Highlight the elements
+                    highlightElements(data);
+                })
+                .catch(error => console.error(error));
+        });
+    </script>
+</body>
+
+</html>
