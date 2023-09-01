@@ -2,7 +2,7 @@
 import os
 import re
 import time
-
+import yaml
 import requests
 import schedule
 from google.auth.transport.requests import Request
@@ -19,9 +19,12 @@ SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 os.environ["HTTP_PROXY"] = "http://192.168.3.54:7890"
 os.environ["HTTPS_PROXY"] = "http://192.168.3.54:7890"
 
+# 定义要使用的转换服务的地址和参数（这里以ClashToVmess为例）
+convert_url = "https://clash-to-vmess.herokuapp.com/clash"
+convert_params = {"url": "", "type": "clash"}
 
-def upload_vmess():
-    """将vmess.txt文件上传到google drive中"""
+def upload_clash():
+    """将clash.yaml文件上传到google drive中"""
     # 尝试从token.json文件中获取凭据，如果没有或无效，则让用户登录并保存新的凭据
     creds = None
     if os.path.exists("token.json"):
@@ -31,7 +34,7 @@ def upload_vmess():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                "vmess\credentials.json", SCOPES
+                "clash\credentials.json", SCOPES
             )
             creds = flow.run_local_server(port=0)
         with open("token.json", "w") as token:
@@ -41,22 +44,22 @@ def upload_vmess():
         # 创建一个drive服务对象并使用凭据进行授权
         service = build("drive", "v3", credentials=creds)
         # 使用MediaFileUpload类创建一个文件对象并指定文件名和MIME类型
-        media = MediaFileUpload("vmess.txt", mimetype="text/plain")
-        # 查询Google Drive中是否存在vmess.txt文件，并获取其id
-        query = "name='vmess.txt' and trashed=false"
+        media = MediaFileUpload("clash.yaml", mimetype="text/plain")
+        # 查询Google Drive中是否存在clash.yaml文件，并获取其id
+        query = "name='clash.yaml' and trashed=false"
         response = service.files().list(q=query, spaces="drive").execute()
         files = response.get("files", [])
         if files:
-            # 如果存在vmess.txt文件，则获取其id
+            # 如果存在clash.yaml文件，则获取其id
             file_id = files[0].get("id")
             # 调用service.files().update()方法并传递文件id和文件对象
             file = service.files().update(fileId=file_id, media_body=media).execute()
             # 打印文件的id和名称
             print(f"Updated file {file.get('name')} with id {file.get('id')}")
         else:
-            # 如果不存在vmess.txt文件，则创建一个新的文件
+            # 如果不存在clash.yaml文件，则创建一个新的文件
             file = service.files().create(
-                body={"name": "vmess.txt"}, media_body=media
+                body={"name": "clash.yaml"}, media_body=media
             ).execute()
             # 打印文件的id和名称
             print(f"Created file {file.get('name')} with id {file.get('id')}")
@@ -65,8 +68,8 @@ def upload_vmess():
         print(f"发生错误: {error}")
 
 
-def get_and_write_vmess():
-    """从网页获取vmess链接并写入vmess.txt文件中"""
+def get_and_write_clash():
+    """从网页获取vmess链接并转成clash订阅内容，然后写入clash.yaml文件中"""
     # 发送请求并获取网页内容
     response = requests.get(url)
     content = response.text
@@ -76,16 +79,22 @@ def get_and_write_vmess():
     # 取第一个vmess链接并打印
     vmess = "vmess://" + vmess_links[0]
     print(vmess)
-    # 将vmess链接写入vmess.txt文件中
-    with open("vmess.txt", "w") as f:
-        f.write(vmess)
+    # 将vmess链接作为参数传递给转换服务，并获取返回的clash订阅内容
+    convert_params["url"] = vmess
+    convert_response = requests.get(convert_url, params=convert_params)
+    clash = convert_response.text
+    print(clash)
+    # 将clash订阅内容写入clash.yaml文件中
+    with open('clash.yaml', 'w', encoding='utf-8') as f:
+        f.write(clash)
+
 
 
 def job():
-    # 调用get_and_write_vmess函数执行主要功能
-    get_and_write_vmess()
-    # 调用upload_vmess函数将vmess.txt文件上传到google drive中
-    upload_vmess()
+    # 调用get_and_write_clash函数执行主要功能
+    get_and_write_clash()
+    # 调用upload_clash函数将clash.yaml文件上传到google drive中
+    upload_clash()
 
 
 schedule.every(10).seconds.do(job)
