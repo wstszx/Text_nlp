@@ -5,10 +5,10 @@ import time
 import os
 
 # 连接设备
-d = u2.connect()
+# d = u2.connect()
 
 # 获取截图
-screenshot = d.screenshot(format="opencv")
+# screenshot = d.screenshot(format="opencv")
 
 # 将截图转换为OpenCV格式
 # img2 = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
@@ -19,8 +19,12 @@ screenshot = d.screenshot(format="opencv")
 # img1 = cv2.imread(os.path.join("C:", "Users", "Admin", "Downloads", "Screenshot_part.png")) # 小图
 # img2 = cv2.imread(r"C:\Users\Admin\Downloads\Screenshot_full.jpg") # 大图
 # img2 = cv2.imread(r"C:\Users\Admin\Downloads\pinduoduo_pad_full.png") # 大图
-img1 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\t003.jpg") # 小图
-img2 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\i002.jpg") # 大图
+# img1 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\t003.jpg") # 小图
+# img2 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\i002.jpg") # 大图
+small_image = r"C:\Users\Admin\Pictures\slide_small1.png"
+big_image = r"C:\Users\Admin\Pictures\slide_big.jpg"
+img1 = cv2.imread(small_image) # 小图
+img2 = cv2.imread(big_image) # 大图
 
 # 标定相机并校正畸变
 objpoints = []  # 三维点
@@ -101,8 +105,8 @@ cv2.circle(img2, (center_x, center_y), 5, (0, 0, 255), -1)
 # 打印矩形中心点坐标
 print("矩形中心点坐标: ({}, {})".format(center_x, center_y))
 # 点击矩形中心点
-time.sleep(5)
-d.click(center_x, center_y)
+# time.sleep(5)
+# d.click(center_x, center_y)
 
 # 计算准确率
 accuracy = len(good) / len(matches) * 100

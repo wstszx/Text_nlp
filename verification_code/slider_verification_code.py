@@ -4,12 +4,13 @@ from PIL import Image, ImageDraw
 
 # 创建一个 DdddOcr 对象
 det = ddddocr.DdddOcr(det=False, ocr=False)
-
+small_img = r"C:\Users\Admin\Pictures\slide_auth_small.png"
+big_img = r"C:\Users\Admin\Pictures\slide_auth.png"
 # 打开两张图片，并将它们转换为字节对象
-with open('auth_code_small.png', 'rb') as f:
+with open(small_img, 'rb') as f:
     target_bytes = f.read()
 
-with open('auth_code_big.png', 'rb') as f:
+with open(big_img, 'rb') as f:
     background_bytes = f.read()
 
 # 使用 slide_match 方法来计算小图片在大图片中的位置，并打印结果
@@ -18,8 +19,8 @@ res = det.slide_match(target_bytes, background_bytes)
 print(res)
 
 # 使用 PIL 库来打开两张图片，并在大图片上绘制一个红色的矩形框，表示小图片的位置
-target_img = Image.open('auth_code_small.png')
-background_img = Image.open('auth_code_big.png')
+target_img = Image.open(small_img)
+background_img = Image.open(big_img)
 
 x1, y1, x2, y2 = res['target']
 draw = ImageDraw.Draw(background_img)
