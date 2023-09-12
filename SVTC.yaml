@@ -1,0 +1,1016 @@
+﻿allow-lan: true
+bind-address: '*'
+dns:
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fallback:
+  - https://doh.dns.sb/dns-query
+  - https://dns.cloudflare.com/dns-query
+  - https://dns.twnic.tw/dns-query
+  - tls://8.8.4.4:853
+  fallback-filter:
+    geoip: true
+    ipcidr:
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+  ipv6: false
+  nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+  use-hosts: true
+external-controller: 127.0.0.1:9090
+log-level: info
+mixed-port: 7890
+mode: rule
+proxies:
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F01"
+  network: ws
+  port: 80
+  server: dongtaiwang2.com
+  type: vmess
+  udp: true
+  uuid: 87a95522-985c-4a17-afea-9b7d7208bce5
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /dongtaiwang.com
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F02"
+  network: ws
+  port: 80
+  server: hk1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F03"
+  network: ws
+  port: 80
+  server: hk1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F04"
+  network: ws
+  port: 80
+  server: hk2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F05"
+  network: ws
+  port: 80
+  server: hk2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1ED\U0001F1F0\u9999\u6E2F06"
+  network: ws
+  port: 80
+  server: hk2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C01"
+  network: ws
+  port: 80
+  server: jp1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C02"
+  network: ws
+  port: 80
+  server: jp1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C03"
+  network: ws
+  port: 80
+  server: jp1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C04"
+  network: ws
+  port: 80
+  server: jp2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C05"
+  network: ws
+  port: 80
+  server: jp2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EF\U0001F1F5\u65E5\u672C06"
+  network: ws
+  port: 80
+  server: jp2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576101"
+  network: ws
+  port: 80
+  server: sg1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576102"
+  network: ws
+  port: 80
+  server: sg1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576103"
+  network: ws
+  port: 80
+  server: sg1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576104"
+  network: ws
+  port: 80
+  server: sg2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576105"
+  network: ws
+  port: 80
+  server: sg2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576106"
+  network: ws
+  port: 80
+  server: sg2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1FA\U0001F1F8\u7F8E\u56FD01"
+  network: ws
+  port: 80
+  server: us1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1FA\U0001F1F8\u7F8E\u56FD02"
+  network: ws
+  port: 80
+  server: us1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1FA\U0001F1F8\u7F8E\u56FD03"
+  network: ws
+  port: 80
+  server: us2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1FA\U0001F1F8\u7F8E\u56FD04"
+  network: ws
+  port: 80
+  server: us2.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EB\U0001F1F7\u6CD5\u56FD01"
+  network: ws
+  port: 80
+  server: fr1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1EB\U0001F1F7\u6CD5\u56FD02"
+  network: ws
+  port: 80
+  server: fr1.c8898496-adb6-4073-9ee4-ff4e4984415b.polycdn.com
+  type: vmess
+  udp: true
+  uuid: 9aca933f-bded-490a-aabf-698ee2bc5281
+  ws-headers:
+    Host: dl.delivery.mp.microsoft.com
+  ws-opts:
+    headers:
+      Host: dl.delivery.mp.microsoft.com
+    path: /
+  ws-path: /
+proxy-groups:
+- name: "\u826F\u5FC3\u673A\u573A"
+  proxies:
+  - "\u81EA\u52A8\u9009\u62E9"
+  - "\u6545\u969C\u8F6C\u79FB"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F01"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F02"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F03"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F04"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F05"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F06"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C01"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C02"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C03"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C04"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C05"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C06"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576101"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576102"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576103"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576104"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576105"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576106"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD01"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD02"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD03"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD04"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD01"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD02"
+  type: select
+- interval: 86400
+  name: "\u81EA\u52A8\u9009\u62E9"
+  proxies:
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F01"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F02"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F03"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F04"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F05"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F06"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C01"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C02"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C03"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C04"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C05"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C06"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576101"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576102"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576103"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576104"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576105"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576106"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD01"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD02"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD03"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD04"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD01"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD02"
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- interval: 7200
+  name: "\u6545\u969C\u8F6C\u79FB"
+  proxies:
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F01"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F02"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F03"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F04"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F05"
+  - "\U0001F1ED\U0001F1F0\u9999\u6E2F06"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C01"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C02"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C03"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C04"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C05"
+  - "\U0001F1EF\U0001F1F5\u65E5\u672C06"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576101"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576102"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576103"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576104"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576105"
+  - "\U0001F1F8\U0001F1EC\u65B0\u52A0\u576106"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD01"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD02"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD03"
+  - "\U0001F1FA\U0001F1F8\u7F8E\u56FD04"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD01"
+  - "\U0001F1EB\U0001F1F7\u6CD5\u56FD02"
+  type: fallback
+  url: http://www.gstatic.com/generate_204
+rules:
+- DOMAIN,xn--mes91r2ng7p4a.com,DIRECT
+- "DOMAIN-SUFFIX,services.googleapis.cn,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,\u826F\u5FC3\u673A\u573A"
+- DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
+- DOMAIN,safebrowsing.googleapis.com,DIRECT
+- "DOMAIN,developer.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,digicert.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,ocsp.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,ocsp.comodoca.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,ocsp.usertrust.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,ocsp.sectigo.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,ocsp.verisign.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,apple-dns.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,testflight.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,sandbox.itunes.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,itunes.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,apps.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blobstore.apple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN,cvws.icloud-content.com,\u826F\u5FC3\u673A\u573A"
+- DOMAIN-SUFFIX,mzstatic.com,DIRECT
+- DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+- DOMAIN-SUFFIX,icloud.com,DIRECT
+- DOMAIN-SUFFIX,icloud-content.com,DIRECT
+- DOMAIN-SUFFIX,me.com,DIRECT
+- DOMAIN-SUFFIX,aaplimg.com,DIRECT
+- DOMAIN-SUFFIX,cdn20.com,DIRECT
+- DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+- DOMAIN-SUFFIX,akadns.net,DIRECT
+- DOMAIN-SUFFIX,akamaiedge.net,DIRECT
+- DOMAIN-SUFFIX,edgekey.net,DIRECT
+- DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT
+- DOMAIN-SUFFIX,mwcname.com,DIRECT
+- DOMAIN-SUFFIX,apple.com,DIRECT
+- DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
+- DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+- DOMAIN-SUFFIX,126.com,DIRECT
+- DOMAIN-SUFFIX,126.net,DIRECT
+- DOMAIN-SUFFIX,127.net,DIRECT
+- DOMAIN-SUFFIX,163.com,DIRECT
+- DOMAIN-SUFFIX,360buyimg.com,DIRECT
+- DOMAIN-SUFFIX,36kr.com,DIRECT
+- DOMAIN-SUFFIX,acfun.tv,DIRECT
+- DOMAIN-SUFFIX,air-matters.com,DIRECT
+- DOMAIN-SUFFIX,aixifan.com,DIRECT
+- DOMAIN-KEYWORD,alicdn,DIRECT
+- DOMAIN-KEYWORD,alipay,DIRECT
+- DOMAIN-KEYWORD,taobao,DIRECT
+- DOMAIN-SUFFIX,amap.com,DIRECT
+- DOMAIN-SUFFIX,autonavi.com,DIRECT
+- DOMAIN-KEYWORD,baidu,DIRECT
+- DOMAIN-SUFFIX,bdimg.com,DIRECT
+- DOMAIN-SUFFIX,bdstatic.com,DIRECT
+- DOMAIN-SUFFIX,bilibili.com,DIRECT
+- DOMAIN-SUFFIX,bilivideo.com,DIRECT
+- DOMAIN-SUFFIX,caiyunapp.com,DIRECT
+- DOMAIN-SUFFIX,clouddn.com,DIRECT
+- DOMAIN-SUFFIX,cnbeta.com,DIRECT
+- DOMAIN-SUFFIX,cnbetacdn.com,DIRECT
+- DOMAIN-SUFFIX,cootekservice.com,DIRECT
+- DOMAIN-SUFFIX,csdn.net,DIRECT
+- DOMAIN-SUFFIX,ctrip.com,DIRECT
+- DOMAIN-SUFFIX,dgtle.com,DIRECT
+- DOMAIN-SUFFIX,dianping.com,DIRECT
+- DOMAIN-SUFFIX,douban.com,DIRECT
+- DOMAIN-SUFFIX,doubanio.com,DIRECT
+- DOMAIN-SUFFIX,duokan.com,DIRECT
+- DOMAIN-SUFFIX,easou.com,DIRECT
+- DOMAIN-SUFFIX,ele.me,DIRECT
+- DOMAIN-SUFFIX,feng.com,DIRECT
+- DOMAIN-SUFFIX,fir.im,DIRECT
+- DOMAIN-SUFFIX,frdic.com,DIRECT
+- DOMAIN-SUFFIX,g-cores.com,DIRECT
+- DOMAIN-SUFFIX,godic.net,DIRECT
+- DOMAIN-SUFFIX,gtimg.com,DIRECT
+- DOMAIN,cdn.hockeyapp.net,DIRECT
+- DOMAIN-SUFFIX,hongxiu.com,DIRECT
+- DOMAIN-SUFFIX,hxcdn.net,DIRECT
+- DOMAIN-SUFFIX,iciba.com,DIRECT
+- DOMAIN-SUFFIX,ifeng.com,DIRECT
+- DOMAIN-SUFFIX,ifengimg.com,DIRECT
+- DOMAIN-SUFFIX,ipip.net,DIRECT
+- DOMAIN-SUFFIX,iqiyi.com,DIRECT
+- DOMAIN-SUFFIX,jd.com,DIRECT
+- DOMAIN-SUFFIX,jianshu.com,DIRECT
+- DOMAIN-SUFFIX,knewone.com,DIRECT
+- DOMAIN-SUFFIX,le.com,DIRECT
+- DOMAIN-SUFFIX,lecloud.com,DIRECT
+- DOMAIN-SUFFIX,lemicp.com,DIRECT
+- DOMAIN-SUFFIX,licdn.com,DIRECT
+- DOMAIN-SUFFIX,luoo.net,DIRECT
+- DOMAIN-SUFFIX,meituan.com,DIRECT
+- DOMAIN-SUFFIX,meituan.net,DIRECT
+- DOMAIN-SUFFIX,mi.com,DIRECT
+- DOMAIN-SUFFIX,miaopai.com,DIRECT
+- DOMAIN-SUFFIX,microsoft.com,DIRECT
+- DOMAIN-SUFFIX,microsoftonline.com,DIRECT
+- DOMAIN-SUFFIX,miui.com,DIRECT
+- DOMAIN-SUFFIX,miwifi.com,DIRECT
+- DOMAIN-SUFFIX,mob.com,DIRECT
+- DOMAIN-SUFFIX,netease.com,DIRECT
+- DOMAIN-SUFFIX,office.com,DIRECT
+- DOMAIN-SUFFIX,office365.com,DIRECT
+- DOMAIN-KEYWORD,officecdn,DIRECT
+- DOMAIN-SUFFIX,oschina.net,DIRECT
+- DOMAIN-SUFFIX,ppsimg.com,DIRECT
+- DOMAIN-SUFFIX,pstatp.com,DIRECT
+- DOMAIN-SUFFIX,qcloud.com,DIRECT
+- DOMAIN-SUFFIX,qdaily.com,DIRECT
+- DOMAIN-SUFFIX,qdmm.com,DIRECT
+- DOMAIN-SUFFIX,qhimg.com,DIRECT
+- DOMAIN-SUFFIX,qhres.com,DIRECT
+- DOMAIN-SUFFIX,qidian.com,DIRECT
+- DOMAIN-SUFFIX,qihucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiniu.com,DIRECT
+- DOMAIN-SUFFIX,qiniucdn.com,DIRECT
+- DOMAIN-SUFFIX,qiyipic.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,qqurl.com,DIRECT
+- DOMAIN-SUFFIX,rarbg.to,DIRECT
+- DOMAIN-SUFFIX,ruguoapp.com,DIRECT
+- DOMAIN-SUFFIX,segmentfault.com,DIRECT
+- DOMAIN-SUFFIX,sinaapp.com,DIRECT
+- DOMAIN-SUFFIX,smzdm.com,DIRECT
+- DOMAIN-SUFFIX,snapdrop.net,DIRECT
+- DOMAIN-SUFFIX,sogou.com,DIRECT
+- DOMAIN-SUFFIX,sogoucdn.com,DIRECT
+- DOMAIN-SUFFIX,sohu.com,DIRECT
+- DOMAIN-SUFFIX,soku.com,DIRECT
+- DOMAIN-SUFFIX,speedtest.net,DIRECT
+- DOMAIN-SUFFIX,sspai.com,DIRECT
+- DOMAIN-SUFFIX,suning.com,DIRECT
+- DOMAIN-SUFFIX,taobao.com,DIRECT
+- DOMAIN-SUFFIX,tencent.com,DIRECT
+- DOMAIN-SUFFIX,tenpay.com,DIRECT
+- DOMAIN-SUFFIX,tianyancha.com,DIRECT
+- DOMAIN-SUFFIX,tmall.com,DIRECT
+- DOMAIN-SUFFIX,tudou.com,DIRECT
+- DOMAIN-SUFFIX,umetrip.com,DIRECT
+- DOMAIN-SUFFIX,upaiyun.com,DIRECT
+- DOMAIN-SUFFIX,upyun.com,DIRECT
+- DOMAIN-SUFFIX,veryzhun.com,DIRECT
+- DOMAIN-SUFFIX,weather.com,DIRECT
+- DOMAIN-SUFFIX,weibo.com,DIRECT
+- DOMAIN-SUFFIX,xiami.com,DIRECT
+- DOMAIN-SUFFIX,xiami.net,DIRECT
+- DOMAIN-SUFFIX,xiaomicp.com,DIRECT
+- DOMAIN-SUFFIX,ximalaya.com,DIRECT
+- DOMAIN-SUFFIX,xmcdn.com,DIRECT
+- DOMAIN-SUFFIX,xunlei.com,DIRECT
+- DOMAIN-SUFFIX,yhd.com,DIRECT
+- DOMAIN-SUFFIX,yihaodianimg.com,DIRECT
+- DOMAIN-SUFFIX,yinxiang.com,DIRECT
+- DOMAIN-SUFFIX,ykimg.com,DIRECT
+- DOMAIN-SUFFIX,youdao.com,DIRECT
+- DOMAIN-SUFFIX,youku.com,DIRECT
+- DOMAIN-SUFFIX,zealer.com,DIRECT
+- DOMAIN-SUFFIX,zhihu.com,DIRECT
+- DOMAIN-SUFFIX,zhimg.com,DIRECT
+- DOMAIN-SUFFIX,zimuzu.tv,DIRECT
+- DOMAIN-SUFFIX,zoho.com,DIRECT
+- "DOMAIN-KEYWORD,amazon,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,google,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,gmail,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,youtube,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,facebook,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fb.me,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fbcdn.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,twitter,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,instagram,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,dropbox,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,twimg.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,blogspot,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,youtu.be,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,whatsapp,\u826F\u5FC3\u673A\u573A"
+- DOMAIN-KEYWORD,admarvel,REJECT
+- DOMAIN-KEYWORD,admaster,REJECT
+- DOMAIN-KEYWORD,adsage,REJECT
+- DOMAIN-KEYWORD,adsmogo,REJECT
+- DOMAIN-KEYWORD,adsrvmedia,REJECT
+- DOMAIN-KEYWORD,adwords,REJECT
+- DOMAIN-KEYWORD,adservice,REJECT
+- DOMAIN-SUFFIX,appsflyer.com,REJECT
+- DOMAIN-KEYWORD,domob,REJECT
+- DOMAIN-SUFFIX,doubleclick.net,REJECT
+- DOMAIN-KEYWORD,duomeng,REJECT
+- DOMAIN-KEYWORD,dwtrack,REJECT
+- DOMAIN-KEYWORD,guanggao,REJECT
+- DOMAIN-KEYWORD,lianmeng,REJECT
+- DOMAIN-SUFFIX,mmstat.com,REJECT
+- DOMAIN-KEYWORD,mopub,REJECT
+- DOMAIN-KEYWORD,omgmta,REJECT
+- DOMAIN-KEYWORD,openx,REJECT
+- DOMAIN-KEYWORD,partnerad,REJECT
+- DOMAIN-KEYWORD,pingfore,REJECT
+- DOMAIN-KEYWORD,supersonicads,REJECT
+- DOMAIN-KEYWORD,uedas,REJECT
+- DOMAIN-KEYWORD,umeng,REJECT
+- DOMAIN-KEYWORD,usage,REJECT
+- DOMAIN-SUFFIX,vungle.com,REJECT
+- DOMAIN-KEYWORD,wlmonitor,REJECT
+- DOMAIN-KEYWORD,zjtoolbar,REJECT
+- "DOMAIN-SUFFIX,9to5mac.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,abpchina.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,adblockplus.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,adobe.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,akamaized.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,alfredapp.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,amplitude.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ampproject.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,android.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,angularjs.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,aolcdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,apkpure.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,appledaily.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,appshopper.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,appspot.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,arcgis.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,archive.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,armorgames.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,aspnetcdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,att.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,awsstatic.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,azureedge.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,azurewebsites.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bing.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bintray.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bit.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bit.ly,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bitbucket.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bjango.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bkrtx.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blog.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blogcdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blogger.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blogsmithmedia.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blogspot.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,blogspot.hk,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,bloomberg.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,box.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,box.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cachefly.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,chromium.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cl.ly,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cloudflare.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cloudfront.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cloudmagic.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cmail19.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cnet.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,cocoapods.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,comodoca.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,crashlytics.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,culturedcode.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,d.pr,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,danilo.to,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,dayone.me,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,db.tt,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,deskconnect.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,disq.us,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,disqus.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,disquscdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,dnsimple.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,docker.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,dribbble.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,droplr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,duckduckgo.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,dueapp.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,dytt8.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,edgecastcdn.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,edgekey.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,edgesuite.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,engadget.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,entrust.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,eurekavpt.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,evernote.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fabric.io,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fast.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fastly.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fc2.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,feedburner.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,feedly.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,feedsportal.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,fiftythree.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,firebaseio.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,flexibits.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,flickr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,flipboard.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,g.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gabia.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,geni.us,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gfx.ms,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ggpht.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ghostnoteapp.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,git.io,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-KEYWORD,github,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,globalsign.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gmodules.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,godaddy.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,golang.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gongm.in,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,goo.gl,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,goodreaders.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,goodreads.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gravatar.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gstatic.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,gvt0.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,hockeyapp.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,hotmail.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,icons8.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ifixit.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ift.tt,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ifttt.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,iherb.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,imageshack.us,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,img.ly,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,imgur.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,imore.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,instapaper.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ipn.li,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,is.gd,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,issuu.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,itgonglun.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,itun.es,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ixquick.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,j.mp,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,js.revsci.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,jshint.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,jtvnw.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,justgetflux.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,kat.cr,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,klip.me,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,libsyn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,linkedin.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,line-apps.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,linode.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,lithium.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,littlehj.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,live.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,live.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,livefilestore.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,llnwd.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,macid.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,macromedia.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,macrumors.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mashable.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mathjax.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,medium.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mega.co.nz,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mega.nz,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,megaupload.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,microsofttranslator.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mindnode.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,mobile01.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,modmyi.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,msedge.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,myfontastic.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,name.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,nextmedia.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,nsstatic.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,nssurge.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,nyt.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,nytimes.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,omnigroup.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,onedrive.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,onenote.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ooyala.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,openvpn.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,openwrt.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,orkut.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,osxdaily.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,outlook.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ow.ly,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,paddleapi.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,parallels.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,parse.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pdfexpert.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,periscope.tv,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pinboard.in,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pinterest.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pixelmator.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pixiv.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,playpcesor.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,playstation.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,playstation.com.hk,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,playstation.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,playstationnetwork.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,pushwoosh.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,rime.im,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,servebom.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sfx.ms,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,shadowsocks.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sharethis.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,shazam.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,skype.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,smartdns\u826F\u5FC3\u673A\u573A.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,smartmailcloud.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sndcdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sony.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,soundcloud.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sourceforge.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,spotify.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,squarespace.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,sstatic.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,st.luluku.pw,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,stackoverflow.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,startpage.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,staticflickr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,steamcommunity.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,symauth.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,symcb.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,symcd.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tapbots.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tapbots.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tdesktop.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,techcrunch.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,techsmith.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,thepiratebay.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,theverge.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,time.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,timeinc.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tiny.cc,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tinypic.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tmblr.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,todoist.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,trello.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,trustasiassl.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tumblr.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tumblr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tweetdeck.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,tweetmarker.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,twitch.tv,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,txmblr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,typekit.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ubertags.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ublock.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ubnt.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ulyssesapp.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,urchin.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,usertrust.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,v.gd,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,v2ex.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vimeo.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vimeocdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vine.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vivaldi.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vox-cdn.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vsco.co,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,vultr.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,w.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,w3schools.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,webtype.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wikiwand.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wikileaks.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wikimedia.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wikipedia.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wikipedia.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,windows.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,windows.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wire.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wordpress.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,workflowy.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wp.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wsj.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,wsj.net,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,xda-developers.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,xeeno.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,xiti.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,yahoo.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,yimg.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ying.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,yoyo.org,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,ytimg.com,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,telegra.ph,\u826F\u5FC3\u673A\u573A"
+- "DOMAIN-SUFFIX,telegram.org,\u826F\u5FC3\u673A\u573A"
+- "IP-CIDR,91.108.4.0/22,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,91.108.8.0/21,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,91.108.16.0/22,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,91.108.56.0/22,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,149.154.160.0/20,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR6,2001:67c:4e8::/48,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR6,2001:b28:f23d::/48,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR6,2001:b28:f23f::/48,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.232.181.162/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.241.147.226/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.253.253.226/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.253.255.162/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.253.255.34/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,120.253.255.98/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,180.163.150.162/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,180.163.150.34/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,180.163.151.162/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,180.163.151.34/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,203.208.39.0/24,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,203.208.40.0/24,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,203.208.41.0/24,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,203.208.43.0/24,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,203.208.50.0/24,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,220.181.174.162/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,220.181.174.226/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- "IP-CIDR,220.181.174.34/32,\u826F\u5FC3\u673A\u573A,no-resolve"
+- DOMAIN,injections.adguard.org,DIRECT
+- DOMAIN,local.adguard.org,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- IP-CIDR,224.0.0.0/4,DIRECT
+- IP-CIDR6,fe80::/10,DIRECT
+- DOMAIN-SUFFIX,cn,DIRECT
+- DOMAIN-KEYWORD,-cn,DIRECT
+- GEOIP,CN,DIRECT
+- "MATCH,\u826F\u5FC3\u673A\u573A"

@@ -1,37 +1,71 @@
-import schedule
-import requests
-import re
-import pyperclip
-import pyautogui
+import os
+import re 
 import time
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
+import yaml
+import requests
+import schedule
+import base64
+import json
+from flask import Flask, send_file
 
-url = 'https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7'
+app = Flask(__name__)
 
-def import_vmess(vmess):
-    gauth = GoogleAuth()
-    gauth.LocalWebserverAuth()
-    drive = GoogleDrive(gauth)
-    file = drive.CreateFile({'title': 'vmess.txt'})
-    file.SetContentString(vmess)
-    file.Upload()
+url = "https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
 
-def get_and_import_vmess():
+@app.route('/api/clash')
+def get_clash():
+    get_and_write_clash()
+    if os.path.exists(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml'):
+        return send_file(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml', as_attachment=True)
+    else:
+        return 'Clash config not generated yet.'
+        
+def get_vmess_link():
     response = requests.get(url)
     content = response.text
-    pattern = r'vmess://([\s\S]*?)</p>'
+    
+    pattern = r"vmess://([\s\S]*?)</p>"
     vmess_links = re.findall(pattern, content)
     vmess = "vmess://" + vmess_links[0]
+
+    return vmess
+
+def decode_vmess(vmess):
+    decodeVmessLink = base64.b64decode(vmess[8:])
+    return json.loads(decodeVmessLink)
+
+def generate_clash_config(decodeVmessLink):
+    with open("vmess/template.yaml", encoding="utf-8") as f:
+        file_data = f.read()
+
+    yamlObject = yaml.load(file_data, yaml.FullLoader)
+
+    proxies = yamlObject["proxies"][0]
+    proxies["server"] = decodeVmessLink["add"]
+    proxies["uuid"] = decodeVmessLink["id"] 
+    proxies["ws-opts"]["path"] = decodeVmessLink["path"]
+    yamlObject["proxies"][0] = proxies
+    print(proxies)
+    with open(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml', 'w', encoding='utf-8') as f:
+        yaml.dump(yamlObject, f)
+        
+def get_and_write_clash():
+    vmess = get_vmess_link()
     print(vmess)
-    import_vmess(vmess)
+    decodeVmessLink = decode_vmess(vmess)
+    generate_clash_config(decodeVmessLink)
 
-get_and_import_vmess()
+def main():
+    # if not os.path.exists(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml'):
+    #     get_and_write_clash()
+        
+    # schedule.every(10).seconds.do(get_and_write_clash)
+    
+    app.run(host='0.0.0.0', port=5000)
 
-# 安排每隔3小时运行一次get_and_import_vmess函数
-# schedule.every(3).hours.do(get_and_import_vmess)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
 
-# 无限循环，等待任务执行
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+if __name__ == '__main__':
+    main()

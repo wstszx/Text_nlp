@@ -1,50 +1,50 @@
+import base64
 import json
-import requests
 
-def parse_vmess(json_data):
-  """
-  解析 JSON 格式的 vmess 链接，返回一个字典
 
-  Args:
-    json_data: JSON 格式的 vmess 链接
+def vmess_to_clash(vmess_url):
+    """
+    将 VMess URL 转换为 Clash 配置。
 
-  Returns:
-    一个字典，包含 vmess 链接的所有信息
-  """
+    Args:
+        vmess_url (str): VMess URL。
 
-  vmess_data = json.loads(json_data)
-  return vmess_data
+    Returns:
+        dict: Clash 配置。
+    """
 
-def convert_vmess_to_clash(json_data):
-  """
-  将 JSON 格式的 vmess 链接转换成 clash 的订阅内容
+    # 检查 URL 是否以 vmess:// 开头
+    if not vmess_url.startswith("vmess://"):
+        raise ValueError("Invalid VMess URL")
 
-  Args:
-    json_data: JSON 格式的 vmess 链接
+    # 解码 base64 编码的 json 字符串
+    vmess_data = base64.b64decode(vmess_url[8:])
+    vmess_config = json.loads(vmess_data)
 
-  Returns:
-    clash 的订阅内容
-  """
+    # 创建 Clash 配置
+    clash_config = {
+        "proxy": {
+            "name": "VMess",
+            "type": "vmess",
+            "host": vmess_config["host"],
+            "port": vmess_config["port"],
+            "uuid": vmess_config["uuid"],
+            # 如果有 cipher 字段，则使用相同的加密方式，否则使用 auto
+            "security": vmess_config.get("cipher", "auto"),
+            # 如果有 tlsSettings 字段，则启用 TLS，否则不启用
+            "tls": "tlsSettings" in vmess_config,
+        }
+    }
 
-  vmess_data = parse_vmess(json_data)
-  return {
-    "name": vmess_data["name"],
-    "type": "vmess",
-    "servers": [
-      {
-        "address": vmess_data["addr"],
-        "port": vmess_data["port"],
-        "uuid": vmess_data["uuid"],
-        "alterid": vmess_data["alterid"],
-        "cipher": vmess_data["cipher"],
-        "auth": vmess_data["auth"],
-        "tls": vmess_data["tls"],
-        "udp": vmess_data["udp"],
-      }
-    ],
-  }
+    # 如果有 password 字段，则添加到 Clash 配置中
+    if "password" in vmess_config:
+        clash_config["proxy"]["password"] = vmess_config["password"]
+
+    return clash_config
+
 
 if __name__ == "__main__":
-  json_data = "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIue+juWbvSIsDQogICJhZGQiOiAiZG9uZ3RhaXdhbmcyLmNvbSIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICI4N2E5NTUyMi05ODVjLTRhMTctYWZlYS05YjdkNzIwOGJjZTUiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIjMuZnJlZWsxLnh5eiIsDQogICJwYXRoIjogIi9kb25ndGFpd2FuZy5jb20iLA0KICAidGxzIjogInRscyIsDQogICJzbmkiOiAiIiwNCiAgImFscG4iOiAiIg0KfQ=="
-  subscription = convert_vmess_to_clash(json_data)
-  print(json.dumps(subscription))
+    vmess_url = "vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIue+juWbvSIsDQogICJhZGQiOiAiZG9uZ3RhaXdhbmcyLmNvbSIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICI4N2E5NTUyMi05ODVjLTRhMTctYWZlYS05YjdkNzIwOGJjZTUiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogIndzIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIjMuZnJlZWsxLnh5eiIsDQogICJwYXRoIjogIi9kb25ndGFpd2FuZy5jb20iLA0KICAidGxzIjogInRscyIsDQogICJzbmkiOiAiIiwNCiAgImFscG4iOiAiIg0KfQ=="
+    clash_config = vmess_to_clash(vmess_url)
+
+    print(clash_config)

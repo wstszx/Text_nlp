@@ -5,22 +5,26 @@ import time
 import yaml
 import requests
 import schedule
+import base64
+import json
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
+from flask import Flask, send_file
+app = Flask(__name__)
 
 # 定义要访问的网页地址和要使用的Google Drive API范围
 url = "https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
 SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 
-os.environ["HTTP_PROXY"] = "http://192.168.3.54:7890"
-os.environ["HTTPS_PROXY"] = "http://192.168.3.54:7890"
+os.environ["HTTP_PROXY"] = "http://127.0.0.1:7890"
+os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7890"
 
 # 定义要使用的转换服务的地址和参数（这里以ClashToVmess为例）
-convert_url = "https://clash-to-vmess.herokuapp.com/clash"
+convert_url = "https://vmess-to-clash.herokuapp.com/vmess"
 convert_params = {"url": "", "type": "clash"}
 
 def upload_clash():
@@ -79,22 +83,31 @@ def get_and_write_clash():
     # 取第一个vmess链接并打印
     vmess = "vmess://" + vmess_links[0]
     print(vmess)
-    # 将vmess链接作为参数传递给转换服务，并获取返回的clash订阅内容
-    convert_params["url"] = vmess
-    convert_response = requests.get(convert_url, params=convert_params)
-    clash = convert_response.text
-    print(clash)
+    # 将vmess链接解码为json对象
+    decodeVmessLink = base64.b64decode(vmess[8:])
+    decodeVmessLink = json.loads(decodeVmessLink)
+    # 读取模板yaml文件内容
+    with open("vmess/template.yaml", encoding="utf-8-sig") as file:
+        file_data = file.read()
+    yamlObject = yaml.load(file_data, yaml.FullLoader) 
+    # 修改yaml对象中的代理服务器信息
+    proxies = yamlObject["proxies"][0]
+    proxies["server"] = decodeVmessLink["add"]
+    proxies["uuid"] = decodeVmessLink["id"]
+    proxies["ws-opts"]["path"] = decodeVmessLink["path"]
+    yamlObject["proxies"][0] = proxies
+    # 将yaml对象转换为字符串并打印
+    # clash = yaml.dump(yamlObject, encoding="utf-8-sig")
+    print(proxies)
     # 将clash订阅内容写入clash.yaml文件中
-    with open('clash.yaml', 'w', encoding='utf-8') as f:
-        f.write(clash)
-
-
+    with open('clash.yaml', 'w', encoding='utf-8-sig') as file:
+        yaml.dump(yamlObject, file, encoding="utf-8-sig")
 
 def job():
     # 调用get_and_write_clash函数执行主要功能
     get_and_write_clash()
     # 调用upload_clash函数将clash.yaml文件上传到google drive中
-    upload_clash()
+    # upload_clash()
 
 
 schedule.every(10).seconds.do(job)
@@ -105,3 +118,10 @@ try:
         time.sleep(1)
 except KeyboardInterrupt:
     print("Execution stopped by user")
+
+@app.route('/api/clash')  
+def get_clash():
+    return send_file('clash.yaml')
+
+if __name__ == '__main__':
+    app.run()
