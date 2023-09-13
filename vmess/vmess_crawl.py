@@ -12,11 +12,11 @@ app = Flask(__name__)
 
 url = "https://github.com/Alvin9999/new-pac/wiki/v2ray%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
 
-@app.route('/api/clash')
+@app.route('/')
 def get_clash():
     get_and_write_clash()
-    if os.path.exists(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml'):
-        return send_file(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml', as_attachment=True)
+    if os.path.exists('clash.yaml'):
+        return send_file('clash.yaml', as_attachment=True)
     else:
         return 'Clash config not generated yet.'
         
@@ -35,7 +35,7 @@ def decode_vmess(vmess):
     return json.loads(decodeVmessLink)
 
 def generate_clash_config(decodeVmessLink):
-    with open("vmess/template.yaml", encoding="utf-8") as f:
+    with open("template.yaml", encoding="utf-8") as f:
         file_data = f.read()
 
     yamlObject = yaml.load(file_data, yaml.FullLoader)
@@ -46,7 +46,7 @@ def generate_clash_config(decodeVmessLink):
     proxies["ws-opts"]["path"] = decodeVmessLink["path"]
     yamlObject["proxies"][0] = proxies
     print(proxies)
-    with open(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml', 'w', encoding='utf-8') as f:
+    with open('clash.yaml', 'w', encoding='utf-8') as f:
         yaml.dump(yamlObject, f)
         
 def get_and_write_clash():
@@ -56,16 +56,16 @@ def get_and_write_clash():
     generate_clash_config(decodeVmessLink)
 
 def main():
-    # if not os.path.exists(r'C:\Users\93037\Python\Text_nlp\vmess\clash.yaml'):
-    #     get_and_write_clash()
+    if not os.path.exists(r'vmess\clash.yaml'):
+        get_and_write_clash()
         
-    # schedule.every(10).seconds.do(get_and_write_clash)
+    schedule.every(18).seconds.do(get_and_write_clash)
     
     app.run(host='0.0.0.0', port=5000)
 
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 if __name__ == '__main__':
     main()
