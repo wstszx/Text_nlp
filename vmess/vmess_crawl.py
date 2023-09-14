@@ -56,7 +56,7 @@ def get_and_write_clash():
     generate_clash_config(decodeVmessLink)
 
 def main():
-    if not os.path.exists(r'vmess\clash.yaml'):
+    if not os.path.exists(r'clash.yaml'):
         get_and_write_clash()
         
     schedule.every(18).seconds.do(get_and_write_clash)

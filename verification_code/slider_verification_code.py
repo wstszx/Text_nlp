@@ -4,8 +4,8 @@ from PIL import Image, ImageDraw
 
 # 创建一个 DdddOcr 对象
 det = ddddocr.DdddOcr(det=False, ocr=False)
-small_img = r"C:\Users\Admin\Pictures\slide_auth_small.png"
-big_img = r"C:\Users\Admin\Pictures\slide_auth.png"
+small_img = r"verification_code\slide_auth_small.png"
+big_img = r"verification_code\slide_auth.png"
 # 打开两张图片，并将它们转换为字节对象
 with open(small_img, 'rb') as f:
     target_bytes = f.read()
