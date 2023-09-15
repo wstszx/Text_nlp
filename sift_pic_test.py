@@ -21,8 +21,8 @@ import os
 # img2 = cv2.imread(r"C:\Users\Admin\Downloads\pinduoduo_pad_full.png") # 大图
 # img1 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\t003.jpg") # 小图
 # img2 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\i002.jpg") # 大图
-small_image = r"C:\Users\Admin\Pictures\slide_small1.png"
-big_image = r"C:\Users\Admin\Pictures\slide_big.jpg"
+small_image = r"C:\Users\Admin\Pictures\slide_.png"
+big_image = r"verification_code\slide_auth.png"
 img1 = cv2.imread(small_image) # 小图
 img2 = cv2.imread(big_image) # 大图
 
@@ -115,10 +115,6 @@ print("准确率：{:.2f}%".format(accuracy))
 # 显示结果
 # Get the size of the larger image
 h, w = img2.shape[:2]
-# Calculate the new window size as a fraction of the original size
-# scale_percent = 50  # percent of original size
-# new_h = int(h * scale_percent / 100)
-# new_w = int(w * scale_percent / 100)
 cv2.namedWindow("img3", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("img3", w, h)
 cv2.imshow("img3", img3)

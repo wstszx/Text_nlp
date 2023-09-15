@@ -14,7 +14,7 @@ with open(big_img, 'rb') as f:
     background_bytes = f.read()
 
 # 使用 slide_match 方法来计算小图片在大图片中的位置，并打印结果
-res = det.slide_match(target_bytes, background_bytes)
+res = det.slide_match(target_bytes, background_bytes, simple_target=True)
 
 print(res)
 

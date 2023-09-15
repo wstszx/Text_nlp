@@ -23,8 +23,10 @@ def hstack_pad(tup):
     return np.hstack(padded_imgs)
 
 # 读取大图和小图
-big_img = cv2.imread(r"verification_code\auth_code_big.png")
-small_img = cv2.imread(r"verification_code\auth_code_small.png") 
+small_img = cv2.imread(r"C:\Users\Admin\Pictures\slide_.png") 
+big_img = cv2.imread(r"verification_code\slide_auth.png")
+# big_img = cv2.imread(r"verification_code\auth_code_big.png")
+# small_img = cv2.imread(r"verification_code\auth_code_small.png") 
 
 # 转换为RGB格式
 big_img = cv2.cvtColor(big_img, cv2.COLOR_BGR2RGB)
