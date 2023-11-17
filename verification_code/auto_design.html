@@ -1,0 +1,308 @@
+<html>
+
+<head>
+    <style>
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+        .toggle-switch-checkbox {
+            display: none;
+        }
+
+        .toggle-switch-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 20px;
+            transition: 0.4s;
+        }
+
+        .toggle-switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .toggle-switch-checkbox:checked+.toggle-switch-slider {
+            background-color: #2196F3;
+        }
+
+        .toggle-switch-checkbox:checked+.toggle-switch-slider:before {
+            transform: translateX(20px);
+        }
+
+        .toolbar {
+            margin-bottom: 10px;
+        }
+
+        .phone-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .phone-button {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+            background-color: #f2f2f2;
+            border: none;
+            cursor: pointer;
+        }
+
+        .phone-button:hover {
+            background-color: #ddd;
+        }
+
+        .phone-button:active {
+            background-color: #ccc;
+        }
+
+        .phone-and-menu {
+            display: flex;
+        }
+
+        .phone {
+            width: 300px;
+            height: 600px;
+            background: #ccc;
+            border: 5px solid black;
+            border-radius: 30px;
+        }
+
+        .menu {
+            width: 100px;
+            background: #f2f2f2;
+            padding: 10px;
+        }
+
+        .menu-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .menu-item.active {
+            background: #1abc9c;
+            color: #fff;
+        }
+
+        .content {
+            flex-grow: 1;
+            height: 600px;
+            background: #f2f2f2;
+            border: 1px solid #000;
+            /* 添加了边框 */
+
+            margin: auto;
+        }
+
+        .sub-menu {
+            display: flex;
+            justify-content: flex-start;
+            border-bottom: 1px solid #ddd;
+            margin-top: 0;
+        }
+
+        .sub-menu-item {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .sub-menu-item.active {
+            background: #3498db;
+            color: #fff;
+        }
+
+        /* 新增了以下样式，将子菜单放在内容区域的顶部 */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            /* 设置垂直排列 */
+        }
+
+        .content-main {
+            flex: 1;
+            /* 填充剩余空间 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="toolbar">
+        <label class="toggle-switch">
+            <input type="checkbox" class="toggle-switch-checkbox">
+            <span class="toggle-switch-slider"></span>
+            <span class="toggle-switch-label">脚本录制开关</span>
+        </label>
+        <button class="toolbar-button">脚本回放</button>
+    </div>
+
+    <div class="phone-and-menu">
+        <div class="phone-buttons">
+            <button class="phone-button">截屏</button>
+            <button class="phone-button">录屏</button>
+        </div>
+
+        <div class="phone">
+        </div>
+
+        <div class="menu">
+            <div class="menu-item active">设备管理</div>
+            <div class="menu-item">脚本管理</div>
+            <div class="menu-item">自动化</div>
+        </div>
+
+        <div class="content">
+
+
+            <div class="content-main">
+
+                <div id="device-management" hidden="false">
+
+                    <table>
+
+                        <tr>
+                            <th>设备名称</th>
+                            <th>型号</th>
+                            <th>系统版本</th>
+                            <th>设备id</th>
+                            <th>操作</th>
+                        </tr>
+
+                        <tr>
+                            <td>小米手机</td>
+                            <td>Mi 11</td>
+                            <td>Android 12</td>
+                            <td>1234567890</td>
+                            <td>
+                                <a href="delete.html" onclick="deleteDevice(1234567890)">删除</a>
+                                <a href="edit.html" onclick="editDevice(1234567890)">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>华为手机</td>
+                            <td>P50 Pro</td>
+                            <td>HarmonyOS 2.0</td>
+                            <td>0987654321</td>
+                            <td>
+                                <a href="delete.html" onclick="deleteDevice('0987654321')">删除</a>
+                                <a href="edit.html" onclick="editDevice('0987654321')">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- 脚本管理的内容是一个列表，每一条中会显示脚本名称，并且还有查看、删除、修改按钮 -->
+                <div id="script-management" hidden="true">
+                    <table>
+
+                        <tr>
+                            <th>脚本名称</th>
+                            <th>操作</th>
+                        </tr>
+
+                        <tr>
+                            <td>百度地图</td>
+                            <td>
+                                <a href="delete.html" onclick="deleteDevice(1234567890)">删除</a>
+                                <a href="edit.html" onclick="editDevice(1234567890)">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>今日头条</td>
+                            <td>
+                                <a href="delete.html" onclick="deleteDevice(1234567890)">删除</a>
+                                <a href="edit.html" onclick="editDevice('0987654321')">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div id="automation" hidden="true">
+                    <table>
+                        <tr>
+                            <th>时间</th>
+                            <th>图片</th>
+                            <th>动作</th>
+                        </tr>
+
+                        <tr>
+                            <td>2023.10.12 00:00:05</td>
+                            <td>图片</td>
+                            <td>点击了图片</td>
+
+                        </tr>
+                        <tr>
+                            <td>2023.10.12 00:00:08</td>
+                            <td>图片</td>
+                            <td>双击了图片</td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+        const menuItems = document.querySelectorAll('.menu-item');
+        document.querySelector('#device-management').hidden = false;
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuItems.forEach(item => item.classList.remove('active'));
+                item.classList.add('active');
+                // 隐藏所有内容
+                document.querySelectorAll('#device-management, #script-management, #automation').forEach(div => {
+                    div.hidden = true;
+                });
+
+                // 显示对应的内容
+                if (item.textContent === '设备管理') {
+                    document.querySelector('#device-management').hidden = false;
+                } else if (item.textContent === '脚本管理') {
+                    document.querySelector('#script-management').hidden = false;
+                } else if (item.textContent === '自动化') {
+                    document.querySelector('#automation').hidden = false;
+                }
+            });
+        });
+
+        const subMenuItems = document.querySelectorAll('.sub-menu-item');
+
+        subMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                subMenuItems.forEach(item => item.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

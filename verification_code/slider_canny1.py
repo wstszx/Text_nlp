@@ -4,7 +4,7 @@ import numpy as np
 
 # 定义常量
 BIG_IMAGE = r"verification_code\slide_auth1.png" # 大图路径
-SMALL_IMAGE = r"verification_code\slide_auth_small1.png" # 小图路径
+SMALL_IMAGE = r"verification_code\slide_auth_small2.png" # 小图路径
 # BIG_IMAGE = r"verification_code\slide_auth.png" # 大图路径
 # SMALL_IMAGE = r"verification_code\slide_auth_small.png" # 小图路径
 THRESHOLD = 0.9 # 匹配阈值

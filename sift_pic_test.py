@@ -19,12 +19,12 @@ import os
 # img1 = cv2.imread(os.path.join("C:", "Users", "Admin", "Downloads", "Screenshot_part.png")) # 小图
 # img2 = cv2.imread(r"C:\Users\Admin\Downloads\Screenshot_full.jpg") # 大图
 # img2 = cv2.imread(r"C:\Users\Admin\Downloads\pinduoduo_pad_full.png") # 大图
-# img1 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\t003.jpg") # 小图
-# img2 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\i002.jpg") # 大图
-small_image = r"C:\Users\Admin\Pictures\slide_.png"
-big_image = r"verification_code\slide_auth.png"
-img1 = cv2.imread(small_image) # 小图
-img2 = cv2.imread(big_image) # 大图
+img1 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\t003.jpg") # 小图
+img2 = cv2.imread(r"C:\Users\Admin\Documents\WeChat Files\wstszx\FileStorage\File\2023-05\match\i002.jpg") # 大图
+# small_image = "small.jpg"
+# big_image = "big.jpg"
+# img1 = cv2.imread(small_image) # 小图
+# img2 = cv2.imread(big_image) # 大图d
 
 # 标定相机并校正畸变
 objpoints = []  # 三维点
