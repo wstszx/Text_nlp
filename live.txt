@@ -4,10 +4,84 @@
       "group": "中文频道",
       "channels": [
         {
-          "name": "IPTV",
-          "urls": [
-            "https://iptv-org.github.io/iptv/languages/zho.m3u"
-          ]
+          "name": "FTV News (民視新聞台)",
+          "urls": ["https://ythls.armelin.one/channel/UC2VmWn8dAqkzlQqvy02E1PA.m3u8"]
+        },
+        {
+          "name": "FTV One (民視第一台)",
+          "urls": ["http://seb.sason.top/ptv/ftv.php?id=dy"]
+        },
+        {
+          "name": "FTV Taiwan (民視台灣台)",
+          "urls": ["http://seb.sason.top/ptv/ftv.php?id=tw"]
+        },
+        {
+          "name": "Global News",
+          "urls": ["https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV02.m3u8"]
+        },
+        {
+          "name": "GOOD TV CH1 綜合台",
+          "urls": ["https://live.streamingfast.net/osmflivech1.m3u8"]
+        },
+        {
+          "name": "GOOD TV CH2 真理台",
+          "urls": ["https://live.streamingfast.net/osmflivech2.m3u8"]
+        },
+        {
+          "name": "HKIBC",
+          "urls": ["https://uc6.i-cable.com/live_freedirect/opentvhd002_h.live/playlist.m3u8"]
+        },
+        {
+          "name": "HKSTV (香港衛視)",
+          "urls": ["https://al-pull2.hkatv.vip/live/hktv20210929.m3u8"]
+        },
+        {
+          "name": "Indigenous TV",
+          "urls": ["http://streamipcf.akamaized.net/live/_definst_/smil:liveabr.smil/playlist.m3u8"]
+        },
+        {
+          "name": "J2",
+          "urls": ["https://pull-f5-spe.ixigua.com/yeslivetv.com/6027316-581799927/index.m3u8"]
+        },
+        {
+          "name": "Kix",
+          "urls": ["http://210.210.155.37/dr9445/h/h07/index.m3u8"]
+        },
+        {
+          "name": "CTi News (中天新聞台)",
+          "urls": ["https://ythls.armelin.one/channel/UC5l1Yto5oOIgRXlI4p4VKbw.m3u8"]
+        },
+        {
+          "name": "CTi Variety (中天綜合台)",
+          "urls": ["http://23.237.10.66:16372"]
+        },
+        {
+          "name": "DaAi1 (大愛1)",
+          "urls": ["https://pulltv1.wanfudaluye.com/live/tv1.m3u8"]
+        },
+        {
+          "name": "DaAi2 (大愛2)",
+          "urls": ["https://pulltv2.wanfudaluye.com/live/tv2.m3u8"]
+        },
+        {
+          "name": "EBC Financial News (東森財經新聞台)",
+          "urls": ["http://seb.sason.top/sc/dscjxw_fhd.m3u8"]
+        },
+        {
+          "name": "EBC Foreign Movie (東森洋片)",
+          "urls": ["https://ctrl.laotv.la/live/DongsenForeignMovie/index.m3u8"]
+        },
+        {
+          "name": "EBC Movie (東森電影)",
+          "urls": ["https://ctrl.laotv.la/live/DongsenMovie/index.m3u8"]
+        },
+        {
+          "name": "EBC News (東森新聞台)",
+          "urls": ["http://seb.sason.top/sc/dsxw_fhd.m3u8"]
+        },
+        {
+          "name": "FTV (民視)",
+          "urls": ["http://seb.sason.top/ptv/ftv.php?id=ms"]
         }
       ]
     }
