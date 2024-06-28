@@ -6,7 +6,7 @@ import google.generativeai as genai
 os.environ['http_proxy'] = 'http://127.0.0.1:7899'
 os.environ['https_proxy'] = 'http://127.0.0.1:7899'
 
-genai.configure(api_key="AIzaSyB93cUIGtfNVJOFQsC_dB-r8irJ6rRXWwY")
+genai.configure(api_key="")
 
 # 创建模型配置
 generation_config = {
