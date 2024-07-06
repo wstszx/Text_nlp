@@ -6,7 +6,7 @@ import google.generativeai as genai
 os.environ['http_proxy'] = 'http://127.0.0.1:7899'
 os.environ['https_proxy'] = 'http://127.0.0.1:7899'
 
-genai.configure(api_key="")
+genai.configure(api_key="AIzaSyB93cUIGtfNVJOFQsC_dB-r8irJ6rRXWwY")
 
 # 创建模型配置
 generation_config = {
@@ -22,7 +22,7 @@ print("配置信息:", generation_config)
 try:
     # 根据最新API文档创建模型实例，确保已删除不支持的参数
     model = genai.GenerativeModel(
-      model_name="gemini-1.5-flash",
+      model_name="gemini-1.5-pro",
       generation_config=generation_config,
       # 根据需要调整安全设置
     )
