@@ -1,7 +1,6 @@
 import os
 import time
 import google.generativeai as genai
-from IPython.display import Markdown
 import configparser
 
 # 设置代理
@@ -17,7 +16,7 @@ genai_api_key = config['API']['GENAI_API_KEY']
 genai.configure(api_key=genai_api_key)
 
 # 上传视频文件
-video_file_name = r"C:\Users\Admin\Videos\1.mp4"
+video_file_name = r"D:\videos\4214444-hd_1920_1080_25fps.mp4"
 print("Uploading file...")
 video_file = genai.upload_file(path=video_file_name)
 print(f"Completed upload: {video_file.uri}")

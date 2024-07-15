@@ -54,7 +54,7 @@ class RateLimiter:
                 self.calls = [c for c in self.calls if now - c < self.period]
                 if len(self.calls) >= self.max_calls:
                     sleep_time = self.period - (now - self.calls[0])
-                    print(f"Rate limit reached. Sleeping for {sleep_time:.2f} seconds...")
+                    print(f"Rate limit reached. Sleeping for{sleep_time:.2f} seconds...")
                     time.sleep(sleep_time)
                 self.calls.append(time.time())
             return f(*args, **kwargs)
@@ -70,7 +70,7 @@ def load_cache():
 
 
 def save_cache(cache):
-    """Saves analysis results cache to a JSON file."""
+    """Saves analysis results cache to a JSON file。"""
     with open(CACHE_FILE, 'w', encoding='utf-8') as f:
         json.dump(cache, f, ensure_ascii=False, indent=4)
 
@@ -89,38 +89,38 @@ def wait_for_file_processing(file):
 
 @RateLimiter(max_calls=5, period=60)
 def analyze_media(media_path, media_type):
-    """Analyzes the content of a video or image using Google Gemini API."""
+    """Analyzes the content of a video or image using Google Gemini API。"""
     prompt = f"描述这个{media_type}的内容："
     print(f"Uploading {media_type}: {media_path}")
     media_file = genai.upload_file(path=media_path)
     print(f"Completed upload: {media_file.uri}")
-    
+
     # 检查文件状态
     while media_file.state.name == "PROCESSING":
         print('.', end='', flush=True)
         time.sleep(10)
         media_file = genai.get_file(media_file.name)
-    
+
     if media_file.state.name != "ACTIVE":
         raise ValueError(f"File processing failed: {media_file.state.name}")
-    
+
     print(f"Prompt: {prompt}")
     print("Generating content analysis...")
     response = model.generate_content([prompt, media_file], generation_config=generation_config, stream=True)
-    
+
     analysis = ""
     for chunk in response:
         analysis += chunk.text
         print(f"Received chunk: {chunk.text}")
-    
+
     return analysis
 
 
 @RateLimiter(max_calls=5, period=60)
 def analyze_script(script):
-    """Analyzes the spoken script and extracts key content and timestamps."""
+    """Analyzes the spoken script and extracts key content and timestamps。"""
     prompt = f"分析以下口播文案，提取关键内容和对应的时间点：\n\n{script}"
-    print(f"Prompt:{prompt}")
+    print(f"Prompt: {prompt}")
     attempts = 0
     max_attempts = 5
     delay = 2
@@ -139,7 +139,7 @@ def analyze_script(script):
 
 @RateLimiter(max_calls=5, period=60)
 def match_content(script_analysis, media_analyses):
-    """Matches spoken content with media material."""
+    """Matches spoken content with media material。"""
     prompt = f"根据以下口播文案分析和媒体内容分析，为每个时间点匹配最合适的媒体素材：\n\n口播分析：{script_analysis}\n\n媒体分析：{media_analyses}"
     print(f"Prompt: {prompt}")
     attempts = 0
@@ -159,7 +159,7 @@ def match_content(script_analysis, media_analyses):
 
 @RateLimiter(max_calls=5, period=60)
 def generate_edit_plan(matches):
-    """Generates a video editing plan."""
+    """Generates a video editing plan。"""
     prompt = f"根据以下内容匹配结果，生成一个详细的视频剪辑计划，包括每个片段的开始时间、持续时间和使用的素材：\n\n{matches}"
     print(f"Prompt: {prompt}")
     attempts = 0
@@ -172,7 +172,7 @@ def generate_edit_plan(matches):
         except Exception as e:
             attempts += 1
             delay *= 2
-            print(f"Attempt {attempts} failed: {e}. Retrying after {delay} seconds...")
+            print(f"Attempt {attempts} failed: {e}.Retrying after {delay} seconds...")
             time.sleep(delay)
     raise Exception("Max attempts reached. Could not connect to the Google Gemini API.")
 
@@ -187,38 +187,79 @@ def read_script_from_srt_file(file_path):
 def parse_edit_plan(edit_plan):
     """Parses the edit plan and returns segment information."""
     segments = []
+    in_segments_section = False
+
     for line in edit_plan.splitlines():
+        line = line.strip()
         print(f"Parsing line: {line}")
-        parts = line.split(',')
-        if len(parts) == 4:
-            start_time, duration, media_type, media_name = parts
-            segments.append({
-                'start_time': float(start_time.strip()),
-                'duration': float(duration.strip()),
-                'media_type': media_type.strip(),
-                'media_name': media_name.strip()
-            })
-            print(f"Successfully parsed segment: {segments[-1]}")
+
+        # 标记段落开始
+        if line.startswith("**片段") or line.startswith("**Segment"):
+            in_segments_section = True
+            continue
+
+        # 跳过空行和无关行
+        if not line or not in_segments_section:
+            continue
+
+        # 解析段落内容
+        parts = line.split('|')
+        if len(parts) >= 5:
+            try:
+                start_time = time_to_seconds(parts[1].strip())
+                duration = time_to_seconds(parts[2].strip())
+                description = parts[3].strip()
+                media_name = parts[4].strip().split('：')[-1].strip()
+
+                media_type = "video" if ".mp4" in media_name.lower() else "image"
+                segments.append({
+                    'start_time': start_time,
+                    'duration': duration,
+                    'media_type': media_type,
+                    'media_name': media_name
+                })
+                print(f"Successfully parsed segment: {segments[-1]}")
+            except ValueError as e:
+                print(f"Skipping line due to parsing error: {line}, Error: {e}")
         else:
             print(f"Skipping line with incorrect format: {line}")
+
+    if not segments:
+        print(f"No valid segments found in edit plan.")
     return segments
+
+
+def time_to_seconds(time_str):
+    """Converts time in the format HH:MM:SS to seconds."""
+    h, m, s = [float(unit) for unit in time_str.split(':')]
+    return h * 3600 + m * 60 + s
 
 
 def edit_video(edit_plan, video_clips, image_clips, output_audio, output_file):
     """Edits the video according to the editing plan."""
     segments = parse_edit_plan(edit_plan)
     print("Segments:", segments)
+    if not segments:
+        raise ValueError("No valid segments were found. The video editing process cannot proceed.")
+
     clips = []
 
     for segment in segments:
         print(f"Processing segment: {segment}")
         if segment['media_type'] == 'video':
-            clip = video_clips[segment['media_name']].subclip(0, segment['duration'])
-        else:
-            clip = image_clips[segment['media_name']].set_duration(segment['duration'])
-        clips.append(clip)
-        print(f"Added clip: {clip}")
-    print("Clips:", clips)
+            clip = video_clips.get(segment['media_name'], None)
+            if clip:
+                clips.append(clip.subclip(0, segment['duration']))
+            else:
+                print(f"Warning: Video file {segment['media_name']} not found.")
+        else:  # Assuming 'image'
+            clip = image_clips.get(segment['media_name'], None)
+            if clip:
+                clips.append(clip.set_duration(segment['duration']))
+            else:
+                print(f"Warning: Image file {segment['media_name']} not found.")
+
+        print(f"Added clip: {clip if clip else 'None'}")
 
     final_clip = concatenate_videoclips(clips, method="compose")
 
@@ -261,7 +302,7 @@ def main(script_file, media_files, output_audio, output_file):
         # 保存缓存
         save_cache(cache)
 
-        matches = match_content(script_analysis, media_analyses)
+        matches =match_content(script_analysis, media_analyses)
         print("Matches:", matches)
 
         edit_plan = generate_edit_plan(matches)
@@ -280,7 +321,7 @@ def main(script_file, media_files, output_audio, output_file):
 
 
 def analyze_media_with_cache(media_path, media_type, cache):
-    """Analyzes the content of a video or image with caching support."""
+    """Analyzes the content of a video or image with caching support。"""
     media_name = os.path.basename(media_path)
     if media_name in cache:
         print(f"Using cached analysis for {media_name}.")
