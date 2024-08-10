@@ -2,7 +2,7 @@
 # import os
 
 # # 设置 API 密钥和构建 YouTube API 客户端
-# api_key = "AIzaSyA6vPa_C15NqqugLTva_66rDOayygeQx0A"
+# api_key = ""
 # youtube = build("youtube", "v3", developerKey=api_key)
 
 # os.environ['http_proxy'] = 'http://127.0.0.1:7899'
@@ -39,7 +39,7 @@ import itertools
 import pycountry
 
 # 设置 API 密钥和构建 YouTube API 客户端
-api_key = "AIzaSyA6vPa_C15NqqugLTva_66rDOayygeQx0A"  # 请替换为你的 API 密钥
+api_key = ""  # 请替换为你的 API 密钥
 youtube = build("youtube", "v3", developerKey=api_key)
 
 # 设置代理 (如果需要)
